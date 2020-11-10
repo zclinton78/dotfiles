@@ -1,0 +1,121 @@
+[bar/dark]
+ 
+override-redirect = false
+bottom = false
+fixed-center = true
+ 
+ 
+;width =
+;height =
+ 
+background = #000000
+foreground = #f8f8f8
+ 
+font-0 = "Terminus (TTF):size=12"
+ 
+modules-left = i3 sep pulseaudio sep 
+modules-center = date
+modules-right =  sep2 memory sep2 cpu sep2 wireless-network
+ 
+[module/decor-glyph]
+type = custom/text
+content-foreground = #f8f8f8
+margin = 0
+ 
+[module/sep]
+inherit = module/decor-glyph
+content = "/"
+content-padding = 2
+ 
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+padding-left = 1
+ 
+label-mode = %mode%
+label-mode-padding = 0
+label-mode-background = #000000
+ 
+label-focused = %index%
+label-focused-foreground = #f8f8f8
+label-focused-background = #000000
+label-focused-underline = #f8f8f8
+label-focused-padding = 0
+ 
+label-unfocused = %index%
+label-unfocused-padding = 0
+ 
+label-separator = | 
+label-separator-padding = 1
+label-separator-foreground = #f8f8f8
+ 
+[module/pulseaudio]
+type = internal/pulseaudio
+ 
+sink = alsa_output.pci-0000_12_00.3.analog-stero
+use-ui-max = true
+interval = 5
+ 
+format-volume = <label-volume>
+label-volume = [VOL] %percentage%%
+ 
+[module/date]
+type = internal/date
+ 
+interval = 1.0
+date = %m-%d-%Y%
+time = %H:%M
+ 
+format = <label>
+label = %time% | %date%
+ 
+label-foreground = #f8f8f8
+ 
+[module/sep2]
+inherit = module/decor-glyph
+content = "\"
+content-padding = 2
+ 
+#[module/battery]
+#type = internal/battery
+#full-at = 69%
+#battery = BAT0
+#adapter = AC
+ 
+#format-charging = <label-charging>
+#format-discharging = <label-discharging>
+ 
+#label-charging = [BAT] Charging: %percentage%%
+#label-discharging = [BAT] %percentage%%
+ 
+#poll-interval = 5
+ 
+[module/memory]
+type = internal/memory
+interval = 3
+ 
+format = <label>
+label = [MEM] %gb_used%/%gb_total%
+ 
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+ 
+format = <label>
+label = [CPU] %percentage%%
+ 
+[module/wireless-network]
+type = internal/network
+interface = wlp7s0
+ 
+interval = 3.0
+ 
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+ 
+label-connected = %local_ip% @ %essid%
+label-connected-foreground = #f8f8f8
+ 
+label-disconnected = "offline"
+label-disconnected-foreground = #7c7c7c
+
