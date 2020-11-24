@@ -13,7 +13,7 @@ foreground = #f8f8f8
  
 font-0 = "Terminus (TTF):size=12"
  
-modules-left = i3 sep pulseaudio sep 
+modules-left = leftbrack i3 rightbrack sep pulseaudio sep 
 modules-center = date
 modules-right =  sep2 memory sep2 cpu sep2 wireless-network
  
@@ -21,6 +21,16 @@ modules-right =  sep2 memory sep2 cpu sep2 wireless-network
 type = custom/text
 content-foreground = #f8f8f8
 margin = 0
+
+[module/leftbrack]
+inherit = module/decor-glyph
+content = "["
+content-padding = 1
+
+[module/rightbrack]
+inherit = module/decor-glyph
+content = "]"
+content-padding = 1
  
 [module/sep]
 inherit = module/decor-glyph
@@ -58,6 +68,9 @@ interval = 5
  
 format-volume = <label-volume>
 label-volume = [VOL] %percentage%%
+format-muted = <label-muted>
+label-muted = [MUTE]
+
  
 [module/date]
 type = internal/date
@@ -113,7 +126,7 @@ interval = 3.0
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
  
-label-connected = %local_ip% @ %essid%
+label-connected = "%local_ip% @ %essid% "
 label-connected-foreground = #f8f8f8
  
 label-disconnected = "offline"
