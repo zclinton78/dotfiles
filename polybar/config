@@ -4,6 +4,8 @@ override-redirect = false
 bottom = false
 fixed-center = true
  
+line-size = 2
+line-color = #f8f8f8
  
 ;width =
 ;height =
@@ -13,7 +15,7 @@ foreground = #f8f8f8
  
 font-0 = "Terminus (TTF):size=12"
  
-modules-left = leftbrack i3 rightbrack sep pulseaudio sep 
+modules-left = leftbrack i3 rightbrack sep pulseaudio sep title sep 
 modules-center = date
 modules-right =  sep2 memory sep2 cpu sep2 wireless-network
  
@@ -68,9 +70,25 @@ interval = 5
  
 format-volume = <label-volume>
 label-volume = [VOL] %percentage%%
+label-volume-underline = #f8f8f8
+
 format-muted = <label-muted>
 label-muted = [MUTE]
+label-muted-underline = #f8f8f8
 
+[module/title]
+type = internal/xwindow
+
+format = <label>
+format-background = #000000
+format-foreground = #f8f8f8
+format-padding = 0
+
+label = %title%
+label-maxlen = 50
+label-underline = #f8f8f8
+
+label-empty = " "
  
 [module/date]
 type = internal/date
@@ -81,6 +99,7 @@ time = %H:%M
  
 format = <label>
 label = %time% | %date%
+label-underline = #f8f8f8
  
 label-foreground = #f8f8f8
  
@@ -96,11 +115,14 @@ content-padding = 2
 #adapter = AC
  
 #format-charging = <label-charging>
-#format-discharging = <label-discharging>
- 
+#format-discharging = <label-discharging> 
+
 #label-charging = [BAT] Charging: %percentage%%
+#label-charging-underline = #f8f8f8
+
 #label-discharging = [BAT] %percentage%%
- 
+#label-discharging-underline = #f8f8f8 
+
 #poll-interval = 5
  
 [module/memory]
@@ -109,6 +131,7 @@ interval = 3
  
 format = <label>
 label = [MEM] %gb_used%/%gb_total%
+label-underline = #f8f8f8
  
 [module/cpu]
 type = internal/cpu
@@ -116,7 +139,8 @@ interval = 0.5
  
 format = <label>
 label = [CPU] %percentage%%
- 
+label-underline = #f8f8f8
+
 [module/wireless-network]
 type = internal/network
 interface = wlp7s0
@@ -128,7 +152,9 @@ format-disconnected = <label-disconnected>
  
 label-connected = "%local_ip% @ %essid% "
 label-connected-foreground = #f8f8f8
+label-connected-underline = #f8f8f8
  
 label-disconnected = "offline"
 label-disconnected-foreground = #7c7c7c
+label-disconnected-underline = #f8f8f8
 
